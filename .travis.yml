@@ -1,0 +1,3 @@
+language: objective-c
+xcode_workspace: FGNmeaKit.xcworkspace
+xcode_scheme: FGNmeaKit
