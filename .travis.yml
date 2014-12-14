@@ -1,3 +1,4 @@
 language: objective-c
 xcode_workspace: FGNmeaKit.xcworkspace
 xcode_scheme: FGNmeaKit
+xcode_sdk: iphonesimulator8.0
