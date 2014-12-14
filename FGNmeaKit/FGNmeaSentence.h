@@ -7,5 +7,5 @@
 
 
 @interface FGNmeaSentence : NSObject
-+ (FGNmeaSentence *)nmeaSentenceFromString:(NSString *)string;
++ (FGNmeaSentence *)nmeaSentenceFromString:(NSString *)sentence error:(NSError **)error;
 @end

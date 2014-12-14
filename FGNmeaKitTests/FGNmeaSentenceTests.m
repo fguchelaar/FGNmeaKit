@@ -13,7 +13,14 @@
 @implementation FGNmeaSentenceTests
 
 - (void)testNilStringCreatesNilSentence {
-    XCTAssertNil([FGNmeaSentence nmeaSentenceFromString:nil], @"Expected nil result for nil-string");
+    XCTAssertNil([FGNmeaSentence nmeaSentenceFromString:nil error:nil], @"Expected nil result for nil-sentence");
+}
+
+- (void)testErrorExpectedForInvalidSentence {
+    NSError *error;
+    FGNmeaSentence *sentence = [FGNmeaSentence nmeaSentenceFromString:nil error:&error];
+    XCTAssertNotNil(error, @"Expected error object for invalid sentence");
+    XCTAssertNil(sentence, @"Expected nil result for nil-sentence");
 }
 
 @end
