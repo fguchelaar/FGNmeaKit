@@ -18,9 +18,8 @@
 
 - (void)testErrorExpectedForInvalidSentence {
     NSError *error;
-    FGNmeaSentence *sentence = [FGNmeaSentence nmeaSentenceFromString:nil error:&error];
+    [FGNmeaSentence nmeaSentenceFromString:nil error:&error];
     XCTAssertNotNil(error, @"Expected error object for invalid sentence");
-    XCTAssertNil(sentence, @"Expected nil result for nil-sentence");
 }
 
 @end
