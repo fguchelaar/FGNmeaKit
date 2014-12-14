@@ -10,6 +10,7 @@
 		0C1661D01A3CB5D300E96615 /* FGNmeaKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C1661CF1A3CB5D300E96615 /* FGNmeaKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C1661D61A3CB5D300E96615 /* FGNmeaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1661CA1A3CB5D300E96615 /* FGNmeaKit.framework */; };
 		0C1661DD1A3CB5D300E96615 /* FGNmeaKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1661DC1A3CB5D300E96615 /* FGNmeaKitTests.m */; };
+		0C1661E91A3D180C00E96615 /* FGNmeaKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0C1661CA1A3CB5D300E96615 /* FGNmeaKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A2F7F15BD3B304FBCB309F46 /* FGNmeaSentenceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F7FA1FB9B690622AB31D3E /* FGNmeaSentenceTests.m */; };
 		A2F7F401BF2F3FEBDBB5ED63 /* FGNmeaSentence.h in Headers */ = {isa = PBXBuildFile; fileRef = A2F7FCD5210E9982FDF019C1 /* FGNmeaSentence.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A2F7FD970BC09D8D9ADC8973 /* FGNmeaSentence.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F7FAFF613B63FCBEF50D3C /* FGNmeaSentence.m */; };
@@ -24,6 +25,19 @@
 			remoteInfo = FGNmeaKit;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0C1661E81A3D17D900E96615 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0C1661E91A3D180C00E96615 /* FGNmeaKit.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0C1661CA1A3CB5D300E96615 /* FGNmeaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FGNmeaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +170,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0C1661E31A3CB5D300E96615 /* Build configuration list for PBXNativeTarget "FGNmeaKitTests" */;
 			buildPhases = (
+				0C1661E81A3D17D900E96615 /* CopyFiles */,
 				0C1661D11A3CB5D300E96615 /* Sources */,
 				0C1661D21A3CB5D300E96615 /* Frameworks */,
 				0C1661D31A3CB5D300E96615 /* Resources */,
