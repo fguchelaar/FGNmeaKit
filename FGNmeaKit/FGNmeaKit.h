@@ -16,3 +16,6 @@ FOUNDATION_EXPORT const unsigned char FGNmeaKitVersionString[];
 
 // Public Headers
 #import "FGNmeaSentence.h"
+
+#import "FGNmeaSentence_Unknown.h"
+#import "FGNmeaSentence_GPRMC.h"

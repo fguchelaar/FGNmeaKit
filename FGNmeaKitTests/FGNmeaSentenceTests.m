@@ -5,6 +5,8 @@
 
 #import <XCTest/XCTest.h>
 #import <FGNmeaKit/FGNmeaKit.h>
+#import "FGNmeaSentence_GPRMC.h"
+#import "FGNmeaSentence_Unknown.h"
 
 @interface FGNmeaSentenceTests : XCTestCase
 
@@ -59,5 +61,17 @@
 
     sentence = @"$GPGSV,3,1,09,3,,,,6,73,209,28,10,,,,13,,,*0C";
     XCTAssertFalse([FGNmeaSentence validateChecksum:sentence], @"expected invalid checksum");
+}
+
+- (void)testParseReturnsCorrectClass {
+    NSString *sentence = @"$GPRMC,081836,A,3751.65,S,14507.36,E,000.0,360.0,130998,011.3,E";
+    FGNmeaSentence *nmeaSentence = [FGNmeaSentence nmeaSentenceFromString:sentence error:nil];
+    XCTAssertTrue([nmeaSentence isKindOfClass:[FGNmeaSentence_GPRMC class]]);
+}
+
+- (void)testParseReturnsUnknownClassForUnknownIdentifier {
+    NSString *sentence = @"$BOGUS,081836,A,3751.65,S,14507.36,E,000.0,360.0,130998,011.3,E";
+    FGNmeaSentence *nmeaSentence = [FGNmeaSentence nmeaSentenceFromString:sentence error:nil];
+    XCTAssertTrue([nmeaSentence isKindOfClass:[FGNmeaSentence_Unknown class]]);
 }
 @end

@@ -11,6 +11,10 @@
 		0C1661D61A3CB5D300E96615 /* FGNmeaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1661CA1A3CB5D300E96615 /* FGNmeaKit.framework */; };
 		0C1661DD1A3CB5D300E96615 /* FGNmeaKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1661DC1A3CB5D300E96615 /* FGNmeaKitTests.m */; };
 		0C1661E91A3D180C00E96615 /* FGNmeaKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0C1661CA1A3CB5D300E96615 /* FGNmeaKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0CF1AEB31A3F9AC500AFAFEA /* FGNmeaSentence_GPRMC.h in Headers */ = {isa = PBXBuildFile; fileRef = A2F7F6560895B4EA1E5A05D2 /* FGNmeaSentence_GPRMC.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0CF1AEB41A3F9AC500AFAFEA /* FGNmeaSentence_Unknown.h in Headers */ = {isa = PBXBuildFile; fileRef = A2F7F622DBD8718B8EC41C02 /* FGNmeaSentence_Unknown.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0CF1AEB51A3F9B2200AFAFEA /* FGNmeaSentence_GPRMC.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F7F53669ABE627778FC726 /* FGNmeaSentence_GPRMC.m */; };
+		0CF1AEB61A3F9B2500AFAFEA /* FGNmeaSentence_Unknown.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F7F6C95948A24AC9BA8FF8 /* FGNmeaSentence_Unknown.m */; };
 		A2F7F0BCCFD14731EE094B4A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A2F7F1061E573BFD1483FD1B /* README.md */; };
 		A2F7F15BD3B304FBCB309F46 /* FGNmeaSentenceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F7FA1FB9B690622AB31D3E /* FGNmeaSentenceTests.m */; };
 		A2F7F401BF2F3FEBDBB5ED63 /* FGNmeaSentence.h in Headers */ = {isa = PBXBuildFile; fileRef = A2F7FCD5210E9982FDF019C1 /* FGNmeaSentence.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -49,6 +53,10 @@
 		0C1661DB1A3CB5D300E96615 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C1661DC1A3CB5D300E96615 /* FGNmeaKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FGNmeaKitTests.m; sourceTree = "<group>"; };
 		A2F7F1061E573BFD1483FD1B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = file.md; path = README.md; sourceTree = "<group>"; };
+		A2F7F53669ABE627778FC726 /* FGNmeaSentence_GPRMC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGNmeaSentence_GPRMC.m; sourceTree = "<group>"; };
+		A2F7F622DBD8718B8EC41C02 /* FGNmeaSentence_Unknown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FGNmeaSentence_Unknown.h; sourceTree = "<group>"; };
+		A2F7F6560895B4EA1E5A05D2 /* FGNmeaSentence_GPRMC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FGNmeaSentence_GPRMC.h; sourceTree = "<group>"; };
+		A2F7F6C95948A24AC9BA8FF8 /* FGNmeaSentence_Unknown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGNmeaSentence_Unknown.m; sourceTree = "<group>"; };
 		A2F7F732447B8B39AF9508FB /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		A2F7FA1FB9B690622AB31D3E /* FGNmeaSentenceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGNmeaSentenceTests.m; sourceTree = "<group>"; };
 		A2F7FAFF613B63FCBEF50D3C /* FGNmeaSentence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGNmeaSentence.m; sourceTree = "<group>"; };
@@ -135,6 +143,10 @@
 		A2F7F6F13191C559291D457E /* Sentences */ = {
 			isa = PBXGroup;
 			children = (
+				A2F7F6560895B4EA1E5A05D2 /* FGNmeaSentence_GPRMC.h */,
+				A2F7F53669ABE627778FC726 /* FGNmeaSentence_GPRMC.m */,
+				A2F7F622DBD8718B8EC41C02 /* FGNmeaSentence_Unknown.h */,
+				A2F7F6C95948A24AC9BA8FF8 /* FGNmeaSentence_Unknown.m */,
 			);
 			path = Sentences;
 			sourceTree = "<group>";
@@ -146,6 +158,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CF1AEB41A3F9AC500AFAFEA /* FGNmeaSentence_Unknown.h in Headers */,
+				0CF1AEB31A3F9AC500AFAFEA /* FGNmeaSentence_GPRMC.h in Headers */,
 				0C1661D01A3CB5D300E96615 /* FGNmeaKit.h in Headers */,
 				A2F7F401BF2F3FEBDBB5ED63 /* FGNmeaSentence.h in Headers */,
 			);
@@ -250,6 +264,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CF1AEB61A3F9B2500AFAFEA /* FGNmeaSentence_Unknown.m in Sources */,
+				0CF1AEB51A3F9B2200AFAFEA /* FGNmeaSentence_GPRMC.m in Sources */,
 				A2F7FD970BC09D8D9ADC8973 /* FGNmeaSentence.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

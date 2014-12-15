@@ -4,6 +4,7 @@
 //
 
 #import "FGNmeaSentence.h"
+#import "FGNmeaSentence_Unknown.h"
 
 @interface FGNmeaSentence ()
 
@@ -22,7 +23,21 @@
         }
         return nil;
     }
-    return [[FGNmeaSentence alloc] initWithFields:nil];
+
+    // Find appropriate class. If none is found, return a sentence of type Unknown
+    NSString *sentenceIdentifier = [sentence substringWithRange:NSMakeRange(1, 5)];
+    NSString *className = [NSString stringWithFormat:@"FGNmeaSentence_%@", sentenceIdentifier];
+    Class sentenceClass = NSClassFromString(className);
+
+    FGNmeaSentence *nmeaSentence;
+    if (sentenceClass) {
+        nmeaSentence = [(FGNmeaSentence *) [sentenceClass alloc] initWithFields:nil];
+    }
+    else {
+        nmeaSentence = [[FGNmeaSentence_Unknown alloc] initWithFields:nil];
+    }
+
+    return nmeaSentence;
 }
 
 + (BOOL)validateSentenceWithString:(NSString *)sentence error:(NSError **)error {
@@ -33,12 +48,14 @@
         return NO;
     }
 
-    if(![self validateChecksum:sentence]) {
+    if (![self validateChecksum:sentence]) {
         if (error != NULL) {
             *error = [[NSError alloc] initWithDomain:@"FGNmeaSentenceValidation" code:2 userInfo:nil];
         }
         return NO;
     }
+
+    // TODO: Check for a 5 character sentence identifier. The first 2 characters are talkerId, the remaing 3 the sentenceId
     return YES;
 }
 
@@ -72,6 +89,8 @@
     if (self) {
         _fields = [fields copy];
     }
+
+    NSLog(@"alloc/init for class of type: %@", [self class]);
     return self;
 }
 
