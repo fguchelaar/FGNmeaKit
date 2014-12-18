@@ -7,11 +7,11 @@
 
 /**
 * Base class for all NMEA-sentences. Subclasses should adhere to the following naming convention:
-* FGNmeaSentence_<SENTENCE-IDENTIFIER>. For instance: FGNmeaSentence_GPRMC
+* FGNmeaSentence_<SENTENCE-IDENTIFIER>. For instance: FGNmeaSentence_GPRMC.
 */
 @interface FGNmeaSentence : NSObject
 
-@property(nonatomic, readonly) NSString *address;
+@property(nonatomic, copy) NSString *address;
 
 @property(nonatomic, readonly) NSString *talkerId;
 

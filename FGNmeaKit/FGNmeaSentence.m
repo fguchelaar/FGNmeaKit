@@ -12,6 +12,7 @@
 
 @end
 
+
 @implementation FGNmeaSentence
 
 + (FGNmeaSentence *)nmeaSentenceFromString:(NSString *)sentence error:(NSError **)error {
@@ -24,9 +25,12 @@
         return nil;
     }
 
+    // trim the string
+    sentence = [sentence stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"$\r\n"]];
+    NSArray *fields = [sentence componentsSeparatedByString:@","];
+
     // Find appropriate class. If none is found, return a sentence of type Unknown
-    NSString *sentenceIdentifier = [sentence substringWithRange:NSMakeRange(1, 5)];
-    NSString *className = [NSString stringWithFormat:@"FGNmeaSentence_%@", sentenceIdentifier];
+    NSString *className = [NSString stringWithFormat:@"FGNmeaSentence_%@", fields[0]];
     Class sentenceClass = NSClassFromString(className);
 
     FGNmeaSentence *nmeaSentence;
@@ -37,6 +41,7 @@
         nmeaSentence = [[FGNmeaSentence_Unknown alloc] initWithFields:nil];
     }
 
+    nmeaSentence.address = fields[0];
     return nmeaSentence;
 }
 
@@ -105,9 +110,15 @@
     if (self) {
         _fields = [fields copy];
     }
-
-    NSLog(@"alloc/init for class of type: %@", [self class]);
     return self;
+}
+
+- (NSString *)talkerId {
+    return [self.address substringWithRange:NSMakeRange(0, 2)];
+}
+
+- (NSString *)sentenceFormatter {
+    return [self.address substringWithRange:NSMakeRange(2, 3)];
 }
 
 
