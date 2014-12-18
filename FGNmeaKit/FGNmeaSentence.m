@@ -116,9 +116,14 @@
     }
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-parameter"
+
 - (void)interpretFields:(NSArray *)fields error:(NSError **)error {
     // noop
 }
+
+#pragma clang diagnostic pop
 
 - (NSString *)talkerId {
     return [self.address substringWithRange:NSMakeRange(0, 2)];

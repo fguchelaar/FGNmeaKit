@@ -16,11 +16,11 @@
 - (void)testInterpretDateAndTime {
 
     NSString *sentence = @"$GPRMC,081836,A,3751.65,S,14507.36,E,000.0,360.0,130998,011.3,E";
-    FGNmeaSentence_GPRMC *nmeaSentence = (FGNmeaSentence_GPRMC *) [FGNmeaSentence nmeaSentenceFromString:sentence error:nil];
+    FGNmeaSentence_GPRMC *gprmc = (FGNmeaSentence_GPRMC *) [FGNmeaSentence nmeaSentenceFromString:sentence error:nil];
 
     NSCalendar *gregorianCalendar = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *dateComponents = [gregorianCalendar componentsInTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]
-                                                                      fromDate:nmeaSentence.dateTime];
+                                                                      fromDate:gprmc.dateTime];
 
     XCTAssertEqual(dateComponents.year, 1998, @"Invalid year");
     XCTAssertEqual(dateComponents.month, 9, @"Invalid month");
