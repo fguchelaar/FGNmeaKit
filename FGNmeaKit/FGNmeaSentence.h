@@ -11,9 +11,11 @@
 */
 @interface FGNmeaSentence : NSObject
 
+@property(nonatomic, readonly) NSString *address;
+
 @property(nonatomic, readonly) NSString *talkerId;
 
-@property(nonatomic, readonly) NSString *sequenceIdentifier;
+@property(nonatomic, readonly) NSString *sentenceFormatter;
 
 + (FGNmeaSentence *)nmeaSentenceFromString:(NSString *)sentence error:(NSError **)error;
 

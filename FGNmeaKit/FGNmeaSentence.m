@@ -55,7 +55,7 @@
         return NO;
     }
 
-    // TODO: Check for a 5 character sentence identifier. The first 2 characters are talkerId, the remaing 3 the sentenceId
+    // TODO: Check for a 5 character address field. The first 2 characters are talkerId, the remaining 3 the sentenceFormatter
     return YES;
 }
 
