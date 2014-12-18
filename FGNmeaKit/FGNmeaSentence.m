@@ -12,7 +12,6 @@
 
 @end
 
-
 @implementation FGNmeaSentence
 
 + (FGNmeaSentence *)nmeaSentenceFromString:(NSString *)sentence error:(NSError **)error {
@@ -35,16 +34,33 @@
 
     FGNmeaSentence *nmeaSentence;
     if (sentenceClass) {
-        nmeaSentence = [(FGNmeaSentence *) [sentenceClass alloc] initWithFields:nil];
+        nmeaSentence = [(FGNmeaSentence *) [sentenceClass alloc] init];
     }
     else {
-        nmeaSentence = [[FGNmeaSentence_Unknown alloc] initWithFields:nil];
+        nmeaSentence = [[FGNmeaSentence_Unknown alloc] init];
+    }
+    nmeaSentence.address = fields[0];
+
+    // interpretFields can validate the data fields and set the error pointer to indicate that there is a problem
+    NSError *dataError;
+    NSArray *dataFields = [fields subarrayWithRange:NSMakeRange(1, fields.count - 1)];
+    [nmeaSentence interpretFields:dataFields error:&dataError];
+    if (dataError) {
+        if (error != NULL) {
+            *error = [[NSError alloc] initWithDomain:dataError.domain code:dataError.code userInfo:dataError.userInfo];
+        }
+        return nil;
     }
 
-    nmeaSentence.address = fields[0];
     return nmeaSentence;
 }
 
+/**
+* Validates the basic 'syntax' of a sentence:
+* - start of sentence ($)
+* - length of address field (5)
+* - checksum
+*/
 + (BOOL)validateSentenceWithString:(NSString *)sentence error:(NSError **)error {
     if (sentence.length == 0) {
         if (error != NULL) {
@@ -60,7 +76,7 @@
         return NO;
     }
 
-    sentence = [sentence stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"$\r\n"]];
+
     if (![self validateChecksum:sentence]) {
         if (error != NULL) {
             *error = [[NSError alloc] initWithDomain:@"FGNmeaSentenceValidation" code:3 userInfo:nil];
@@ -68,6 +84,7 @@
         return NO;
     }
 
+    sentence = [sentence stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"$\r\n"]];
     NSArray *fields = [sentence componentsSeparatedByString:@","];
     NSString *address = fields[0];
     if (address.length != 5) {
@@ -105,12 +122,8 @@
     }
 }
 
-- (instancetype)initWithFields:(NSArray *)fields {
-    self = [super init];
-    if (self) {
-        _fields = [fields copy];
-    }
-    return self;
+- (void)interpretFields:(NSArray *)array error:(NSError **)error {
+    // noop
 }
 
 - (NSString *)talkerId {
