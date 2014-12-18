@@ -30,6 +30,20 @@
     XCTAssertNil(sentence, @"Expected nil result for nil-sentence");
 }
 
+- (void)testErrorExpectedForInvaliStartCharacter {
+    NSError *error;
+    FGNmeaSentence *sentence = [FGNmeaSentence nmeaSentenceFromString:@"#GPGSA,A,1,,,,,,,,,,,,,0.0,0.0,0.0*AA" error:&error];
+    XCTAssertNotNil(error, @"Expected error object for invalid start character");
+    XCTAssertNil(sentence, @"Expected nil result for nil-sentence");
+}
+
+- (void)testErrorExpectedForInvalidAddressLength {
+    NSError *error;
+    FGNmeaSentence *sentence = [FGNmeaSentence nmeaSentenceFromString:@"$GPGSAA,A,1,,,,,,,,,,,,,0.0,0.0,0.0*AA" error:&error];
+    XCTAssertNotNil(error, @"Expected error object for address length");
+    XCTAssertNil(sentence, @"Expected nil result for nil-sentence");
+}
+
 - (void)testErrorExpectedForSentenceWithInvalidChecksum {
     NSError *error;
     FGNmeaSentence *sentence = [FGNmeaSentence nmeaSentenceFromString:@"$GPGSA,A,1,,,,,,,,,,,,,0.0,0.0,0.0*AA" error:&error];
