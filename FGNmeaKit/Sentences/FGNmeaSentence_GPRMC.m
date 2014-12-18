@@ -19,6 +19,8 @@
     }
 
     self.dateTime = [self dateFromDate:fields[8] andTime:fields[0]];
+    self.latitude = [self degreesFromCoordinate:fields[2] inQuadrasphere:fields[3]];
+    self.longitude = [self degreesFromCoordinate:fields[4] inQuadrasphere:fields[5]];
 }
 
 - (NSDate *)dateFromDate:(NSString *)date andTime:(NSString *)time {
@@ -27,6 +29,19 @@
     [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
     NSString *concatenatedString = [NSString stringWithFormat:@"%@T%@", date, time];
     return [dateFormatter dateFromString:concatenatedString];
+}
+
+- (CLLocationDegrees)degreesFromCoordinate:(NSString *)coordinate inQuadrasphere:(NSString *)nsew {
+    NSRange dotRange = [coordinate rangeOfString:@"."];
+
+    double whole = [[coordinate substringWithRange:NSMakeRange(0, dotRange.location - 2)] doubleValue];
+    double decimals = [[coordinate substringFromIndex:dotRange.location - 2] doubleValue] / 60;
+
+    double degrees = whole + decimals;
+    if ([nsew isEqualToString:@"S"] || [nsew isEqualToString:@"W"]) {
+        degrees *= -1;
+    }
+    return degrees;
 }
 
 @end

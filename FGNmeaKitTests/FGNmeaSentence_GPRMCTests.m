@@ -30,4 +30,12 @@
     XCTAssertEqual(dateComponents.second, 36, @"Invalid second");
 }
 
+- (void)testInterpretLatitudeAndLongitude {
+
+    NSString *sentence = @"$GPRMC,081836,A,3751.65,S,14507.36,E,000.0,360.0,130998,011.3,E";
+    FGNmeaSentence_GPRMC *gprmc = (FGNmeaSentence_GPRMC *) [FGNmeaSentence nmeaSentenceFromString:sentence error:nil];
+
+    XCTAssertEqual(gprmc.latitude, -37.86083333333333, @"Invalid latitude");
+    XCTAssertEqual(gprmc.longitude, 145.12266666666667, @"Invalid longitude");
+}
 @end

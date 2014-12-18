@@ -4,6 +4,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 #import "FGNmeaSentence.h"
 
 /**
@@ -30,12 +31,12 @@
 /**
 * field 3+4
 */
-@property(nonatomic, strong) id latitude;
+@property(nonatomic, assign) CLLocationDegrees latitude;
 
 /**
 * field 5+6
 */
-@property(nonatomic, strong) id longitude;
+@property(nonatomic, assign) CLLocationDegrees longitude;
 
 /**
 * Speed over ground, knots
