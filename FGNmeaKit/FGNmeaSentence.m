@@ -48,14 +48,30 @@
         return NO;
     }
 
-    if (![self validateChecksum:sentence]) {
+    if ([sentence characterAtIndex:0] != '$') {
         if (error != NULL) {
             *error = [[NSError alloc] initWithDomain:@"FGNmeaSentenceValidation" code:2 userInfo:nil];
         }
         return NO;
     }
 
-    // TODO: Check for a 5 character address field. The first 2 characters are talkerId, the remaining 3 the sentenceFormatter
+    sentence = [sentence stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"$\r\n"]];
+    if (![self validateChecksum:sentence]) {
+        if (error != NULL) {
+            *error = [[NSError alloc] initWithDomain:@"FGNmeaSentenceValidation" code:3 userInfo:nil];
+        }
+        return NO;
+    }
+
+    NSArray *fields = [sentence componentsSeparatedByString:@","];
+    NSString *address = fields[0];
+    if (address.length != 5) {
+        if (error != NULL) {
+            *error = [[NSError alloc] initWithDomain:@"FGNmeaSentenceValidation" code:4 userInfo:nil];
+        }
+        return NO;
+    }
+
     return YES;
 }
 
