@@ -6,6 +6,13 @@
 #import <Foundation/Foundation.h>
 #import "FGNmeaSentence.h"
 
+/**
+* GPRMC
+* Talker: Global Positioning System (GPS)
+* Sentence: Recommended Minimum Specific GNSS Data
+*
+* Time. date, position, course and speed data provided by a GNSS navigation receiver.
+*/
 @interface FGNmeaSentence_GPRMC : FGNmeaSentence
 
 @end
