@@ -37,5 +37,5 @@
 * 1. validate the input and set error when appropriate
 * 2. set corresponding properties
 */
-- (void)interpretFields:(NSArray *)array error:(NSError **)error;
+- (void)interpretFields:(NSArray *)fields error:(NSError **)error;
 @end

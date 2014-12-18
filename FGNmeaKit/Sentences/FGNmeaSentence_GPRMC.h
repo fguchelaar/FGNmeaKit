@@ -16,11 +16,11 @@
 @interface FGNmeaSentence_GPRMC : FGNmeaSentence
 
 /**
-* UTC of position fix
+* UTC date and time of position fix
 *
-* field 1
+* field 1 + 9
 */
-@property(nonatomic, strong) id time;
+@property(nonatomic, strong) NSDate *dateTime;
 
 /**
 * field 2
@@ -50,11 +50,6 @@
 * field 8
 */
 @property(nonatomic, strong) id courseOverGround;
-
-/**
-* field 9
-*/
-@property(nonatomic, strong) id date;
 
 /**
 * Magnetic variation, degrees E/W

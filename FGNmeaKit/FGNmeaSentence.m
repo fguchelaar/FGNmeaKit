@@ -6,12 +6,6 @@
 #import "FGNmeaSentence.h"
 #import "FGNmeaSentence_Unknown.h"
 
-@interface FGNmeaSentence ()
-
-@property(nonatomic, strong) NSArray *fields;
-
-@end
-
 @implementation FGNmeaSentence
 
 + (FGNmeaSentence *)nmeaSentenceFromString:(NSString *)sentence error:(NSError **)error {
@@ -122,7 +116,7 @@
     }
 }
 
-- (void)interpretFields:(NSArray *)array error:(NSError **)error {
+- (void)interpretFields:(NSArray *)fields error:(NSError **)error {
     // noop
 }
 

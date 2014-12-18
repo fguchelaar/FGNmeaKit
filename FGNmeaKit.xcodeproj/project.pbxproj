@@ -19,6 +19,7 @@
 		A2F7F15BD3B304FBCB309F46 /* FGNmeaSentenceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F7FA1FB9B690622AB31D3E /* FGNmeaSentenceTests.m */; };
 		A2F7F401BF2F3FEBDBB5ED63 /* FGNmeaSentence.h in Headers */ = {isa = PBXBuildFile; fileRef = A2F7FCD5210E9982FDF019C1 /* FGNmeaSentence.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A2F7FA070C6A5EF9C706AC1B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A2F7F732447B8B39AF9508FB /* LICENSE */; };
+		A2F7FB5C3189F5367DDEAE60 /* FGNmeaSentence_GPRMCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F7F742FE58A2718E52D668 /* FGNmeaSentence_GPRMCTests.m */; };
 		A2F7FD970BC09D8D9ADC8973 /* FGNmeaSentence.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F7FAFF613B63FCBEF50D3C /* FGNmeaSentence.m */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		A2F7F6560895B4EA1E5A05D2 /* FGNmeaSentence_GPRMC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FGNmeaSentence_GPRMC.h; sourceTree = "<group>"; };
 		A2F7F6C95948A24AC9BA8FF8 /* FGNmeaSentence_Unknown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGNmeaSentence_Unknown.m; sourceTree = "<group>"; };
 		A2F7F732447B8B39AF9508FB /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		A2F7F742FE58A2718E52D668 /* FGNmeaSentence_GPRMCTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGNmeaSentence_GPRMCTests.m; sourceTree = "<group>"; };
 		A2F7FA1FB9B690622AB31D3E /* FGNmeaSentenceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGNmeaSentenceTests.m; sourceTree = "<group>"; };
 		A2F7FAFF613B63FCBEF50D3C /* FGNmeaSentence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGNmeaSentence.m; sourceTree = "<group>"; };
 		A2F7FCD5210E9982FDF019C1 /* FGNmeaSentence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FGNmeaSentence.h; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				0C1661DA1A3CB5D300E96615 /* Supporting Files */,
 				0C1661DC1A3CB5D300E96615 /* FGNmeaKitTests.m */,
 				A2F7FA1FB9B690622AB31D3E /* FGNmeaSentenceTests.m */,
+				A2F7F742FE58A2718E52D668 /* FGNmeaSentence_GPRMCTests.m */,
 			);
 			path = FGNmeaKitTests;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			files = (
 				0C1661DD1A3CB5D300E96615 /* FGNmeaKitTests.m in Sources */,
 				A2F7F15BD3B304FBCB309F46 /* FGNmeaSentenceTests.m in Sources */,
+				A2F7FB5C3189F5367DDEAE60 /* FGNmeaSentence_GPRMCTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

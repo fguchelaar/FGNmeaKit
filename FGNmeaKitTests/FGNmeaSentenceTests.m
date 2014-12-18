@@ -76,7 +76,7 @@
 }
 
 - (void)testParseReturnsCorrectClass {
-    NSString *sentence = @"$GPRMC,081836,A,3751.65,S,14507.36,E,000.0,360.0,130998,011.3,E";
+    NSString *sentence = @"$GPRMC,181836,A,3751.65,S,14507.36,E,000.0,360.0,130900,011.3,E";
     FGNmeaSentence *nmeaSentence = [FGNmeaSentence nmeaSentenceFromString:sentence error:nil];
     XCTAssertTrue([nmeaSentence isKindOfClass:[FGNmeaSentence_GPRMC class]]);
 }
